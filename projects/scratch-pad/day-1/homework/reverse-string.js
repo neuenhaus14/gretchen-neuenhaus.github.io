@@ -27,11 +27,11 @@ function reverseString(input) {
     var output = "" 
 
     // for loop
-    for (var i = input.length -1; i <= 0; i --){
-      output =+ input[i]
+    for (var i = input.length - 1; i >= 0; i --){
+      output += input[i]
     }
 
-return 
+return output
 
     
     
