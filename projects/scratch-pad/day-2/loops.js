@@ -133,8 +133,12 @@ return length
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
-  
-  
+  // change key value pairs into array and put in reverse
+
+for (var key in object){
+
+console.log(Object[key].reverse());
+}
   
   // YOUR CODE ABOVE HERE //
 }

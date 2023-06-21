@@ -13,6 +13,24 @@
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
 
+// for loop first to print all the numbers 1 -100
+for (var i = 1; i <= 100; i++){
+
+    // FINALLY is what we want to start with... 
+    if (i % 5 === 0 && i % 3 === 0){ // multiple of 3 and 5
+        console.log("FizzBuzz") // print "FizzBuzz"
+    
+    }else if (i % 3 === 0){  // multiple of 3
+        console.log("Fizz") // print "Fizz"
+
+    }else if (i % 5 === 0){ // multiple of 5
+        console.log("Buzz") // print "Buzz"
+
+    // if there was a multiple of 3, 5, or both, then log the other numbers    
+    }else 
+        console.log(i)
+    }
+
 
 
     // YOUR CODE GOES ABOVE HERE //
