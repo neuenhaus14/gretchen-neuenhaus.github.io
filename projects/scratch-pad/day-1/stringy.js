@@ -119,7 +119,7 @@ function endsWith(string, char) {
 // if string begins with same character as character
 var a = string.toLowerCase()
 var b = char.toLowerCase()
-if (a.length - 1 === b){ 
+if (a[a.length -1] === b){ 
     // return true
     return true    
     }
@@ -162,9 +162,9 @@ function join(stringOne, stringTwo) {
 
 
 // join all the strings together
- join(args)
+ return args.join("");
 
-return args
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -186,9 +186,9 @@ var b = stringTwo.length
 
 // return the value
 if (a >= b){
-    return a
+    return stringOne
 } else{
-    return b
+    return stringTwo
 }
 
     // YOUR CODE ABOVE HERE //
