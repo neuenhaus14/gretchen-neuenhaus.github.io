@@ -37,6 +37,11 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) { // these has to pass first!
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    }
 
 } 
 
@@ -54,10 +59,32 @@ function makeContactList() {
         },
         addContact: function(contact){
             contacts.push(contact)
+        }, 
+        findContact: function(fullName){
+            for (var i = 0; i < contacts.length; i++) {
+                if (fullName === contacts[i]["nameFirst"] + ' ' + contacts[i]["nameLast"]){
+                    return contacts[i]
+                }
+            }
+        },
+        removeContact: function(contact) {
+            for (var i = 0; i < contacts.length; i++){
+                if (contacts[i] === contact){
+                    return contacts.splice(i, 1)
+                }
+            }
+        },
+        printAllContactNames: function printAllContactNames(){
+            for (var i = 0; i < contacts.length; i++){
+                return contacts[i]["nameFirst"] + ' ' + contacts[i]["nameLast"].split('\n')    
         }
     }
+    }
 }
+    
+    
 
+           
 
 // return object full of the methods above
 // every method in the obj will be a method that does somehting to 

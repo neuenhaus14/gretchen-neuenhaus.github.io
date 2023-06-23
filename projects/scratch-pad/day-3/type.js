@@ -123,20 +123,18 @@ function typeOf(value) {
         return 'number'
     } else if (typeof value === 'boolean'){
         return 'boolean'
-    } else if (typeof value === 'null'){
-        return 'null'
+    } else if (value === 'null'){
+        return 'object'
     } else if (typeof value === 'function'){
         return 'function'
     } else if (Array.isArray(value)){  
         return 'array'; 
     } else if (value instanceof Date){
         return 'date'
-    } else {
-        return "object"
-    }
-
-
     
+    }
+      
+
     
     // YOUR CODE ABOVE HERE //
 }
