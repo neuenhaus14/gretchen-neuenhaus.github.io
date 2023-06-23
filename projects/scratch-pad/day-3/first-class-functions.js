@@ -98,7 +98,7 @@ function modifyStrings(strings, modify) { // modify is a function!
 
     var output = [] // new var that takes an array
     for (var i = 0; i < strings.length; i ++){ // created the loop but now need to test true or false
-        output += strings[i]
+        output.push(modify(strings[i])) 
     }
 
 return output 
@@ -127,11 +127,11 @@ function allStringsPass(strings, test) {
 
     // loop
     for (var i = 0; i < strings.length; i ++){
-        if (test(strings[i]) === true){
-            output.push(strings[i])
+        if (test(strings[i] === true)){
+                return false
         }
     }
-return output
+
 
 
 
