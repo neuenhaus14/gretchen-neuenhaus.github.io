@@ -122,19 +122,16 @@ return output
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     
-    // create variable
-    var output = []
+    
 
     // loop
     for (var i = 0; i < strings.length; i ++){
-        if (test(strings[i] === true)){
-                return output = true
-        } else {
-            return output = false
+        if (test(strings[i]) === false){
+            return false
         }
     }
-
-return output
+           
+return true
 
 
     // test is a function that will test an indvidual string and return true or false

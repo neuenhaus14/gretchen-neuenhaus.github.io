@@ -24,15 +24,7 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     
-    var output = [] //to collect the output you'll return
-
-    for (var i = start; i <= end.length; i ++ ){ // a loop
-        output.push(i); 
-        }
-        return output
-    }
     
-    var ranges = range()
     
     
     // YOUR CODE GOES ABOVE HERE //
