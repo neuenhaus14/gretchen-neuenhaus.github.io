@@ -26,15 +26,18 @@ function range(start, end) {
     
     var array = []
 
-    if (start > end){
-         for( var i = end; i < start; i --){
+    for( var i = end.length - 1 ; i >= start; i--){
+        if (start > end){
             return array.push(i)
-        } 
-    } else if (start < end){
-        for (var x = start; x > end; i++){
+        }
+    for (var x = start; x <= end; x ++){
+        if (start < end){
             return array.push(x)
         }
     }
+    
+    }
+    
     
     return array
     
