@@ -79,7 +79,7 @@ function makeContactList() {
             for (var i = 0; i < contacts.length; i++){
                  fullNames.push(contacts[i]["nameFirst"] + ' ' + contacts[i]["nameLast"])    
             }
-            return fullNames + \n
+            return fullNames.join('\n') 
         } 
     }
 }
