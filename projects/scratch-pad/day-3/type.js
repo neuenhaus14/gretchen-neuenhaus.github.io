@@ -123,8 +123,8 @@ function typeOf(value) {
         return 'number'
     } else if (typeof value === 'boolean'){
         return 'boolean'
-    } else if (value === 'null'){
-        return 'object'
+    } else if (value === null){
+        return 'null'
     } else if (typeof value === 'function'){
         return 'function'
     } else if (Array.isArray(value)){  
@@ -133,6 +133,9 @@ function typeOf(value) {
         return 'date'
     
     }
+
+    
+    return value
       
 
     

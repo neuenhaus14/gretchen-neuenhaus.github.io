@@ -128,11 +128,13 @@ function allStringsPass(strings, test) {
     // loop
     for (var i = 0; i < strings.length; i ++){
         if (test(strings[i] === true)){
-                return false
+                return output = true
+        } else {
+            return output = false
         }
     }
 
-
+return output
 
 
     // test is a function that will test an indvidual string and return true or false
