@@ -27,11 +27,11 @@ function range(start, end) {
     var array = []
 
     if (start > end){
-         for( var i = start; i > end.length; i --){
+         for( var i = end; i < start; i --){
             return array.push(i)
         } 
-    } else {
-        for (var x = start; x < end.length; i++){
+    } else if (start < end){
+        for (var x = start; x > end; i++){
             return array.push(x)
         }
     }
