@@ -135,11 +135,12 @@ function printObjectValuesInReverse(object) {
   
   // change key value pairs into array and put in reverse
 
-for (var key in object){
+var reversedValues = Object.values(object).reverse()
 
-console.log(Object[key].reverse());
-}
-  
+for (var i = 0; i <= reversedValues.length - 1; i++ )
+console.log(reversedValues[i])
+
+
   // YOUR CODE ABOVE HERE //
 }
 

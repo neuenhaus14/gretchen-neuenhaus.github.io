@@ -22,24 +22,34 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    
+    // YOUR CODE GOES BELOW HERE // 
     var array = []
+    
+    if (start > end){
+        for( var i = start ; i >= end; i--){
+            array.push(i)
+        }
+    }else if (start < end){
+        for (var x = start; x <= end; x++){
+            array.push(x)
+        }
+    }
 
-    for( var i = end.length - 1 ; i >= start; i--){
-        if (start > end){
-            return array.push(i)
-        }
-    for (var x = start; x <= end; x ++){
-        if (start < end){
-            return array.push(x)
-        }
-    }
-    
-    }
-    
-    
     return array
+
+
+    // for( var i = start ; i >= end; i--){
+    //     if (start > end){
+    //         array.push(i)
+    //     }
+    // }
+    // for (var x = start; x <= end; x++){
+    //     if (start < end){
+    //         array.push(x)
+    //     }
+    // }
+    
+   
     
     // YOUR CODE GOES ABOVE HERE //
 }
