@@ -97,15 +97,19 @@ console.log(animals.length);
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-var friends = []
+var friends = [ ]
 // we chose array because it is the best option for a plain and simple list. 
-
 function getRandom (array){
-return Math.random(array)
-
+return Math.floor(Math.random() * 4) 
 }
 
-friends[(getRandom(animals))][1].push(animals)
+var newFriend = getRandom(animals) // index
+friends.push(animals[newFriend])
+
+console.log(friends)
+
+animals[1][friends] = "friends"
+
 
 // var newFriend = (getRandom(animals.name))
 // friends.push(newFriend)
