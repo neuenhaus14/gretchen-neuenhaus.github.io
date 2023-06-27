@@ -105,11 +105,11 @@ function getRandom (array){
 }
 
 var newFriend = Math.round(getRandom(animals)) // rounded index from 0-3
-friends.push(animals[newFriend.newFriend["name"]]) // push(animals[randomindex][name]) into friends
+friends.push(animals[newFriend["name"]]) // push(animals[randomindex][name]) into friends
 
 console.log(friends)
 
-animals.cat['friends'] = friends // add friends list as a property on one of the animals in the animals array
+animals[newFriend]['friends'] = friends // add friends list as a property on one of the animals in the animals array
                             // adding to animals to a random animal 
 
 // var newFriend = (getRandom(animals.name))
