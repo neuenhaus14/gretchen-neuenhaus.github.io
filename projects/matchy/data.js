@@ -100,12 +100,12 @@ console.log(animals.length);
 var friends = [ ]
 // we chose array because it is the best option for a plain and simple list. 
 function getRandom (array){
- return Math.floor(Math.random() * 4)
+ return Math.floor(Math.random() * array.length)
 
 }
 
-var newFriend = Math.round(getRandom(animals)) // rounded index from 0-3
-friends.push(animals[newFriend["name"]]) // push(animals[randomindex][name]) into friends
+var newFriend = getRandom(animals)// rounded index from 0-3
+friends.push(animals[newFriend].name) // push(animals[randomindex][name]) into friends
 
 console.log(friends)
 
