@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
+    return Object.values(object)
 
 } 
 
@@ -11,7 +12,8 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    var key = Object.keys(object)
+    return key.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +21,14 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    var value = ""
+    for ( var i = 0; i < object.length; i++){
+        value.push(object[i])
+    if (typeof Object.values(object[i]) === "string"){
+         
+    }
+    return value
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,15 +36,21 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+   if (Array.isArray(collection)){
+    return 'array'
+   } else{
+    return "object"
+   }
+
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//Should take a string of one word, and return the word with its first letter capitaliz
 function capitalizeWord(string) {
-    
+  return string.charAt(0).toUpperCase() + string.slice(1)  
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,15 +58,27 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    var array = string.split(" ");
+
+   for (var i = 0; i < array.length; i++ ){
+    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
+   }
+   return string = array.join(" ");
 }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+    var newObject = ""
+if (object.hasOwnProperty('name')){
+   newObject.push(object["name"].charAt(0).toUpperCase() + object["name"].slice(1));
 
+    return "Welcome " + object[key]["name"] + "!"
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +86,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+return object.name + "is a " + object.species
 }
 
 //////////////////////////////////////////////////////////////////////
