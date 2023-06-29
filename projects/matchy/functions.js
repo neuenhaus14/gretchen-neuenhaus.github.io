@@ -58,7 +58,7 @@ function remove (array, name){
             //animals animal 
 function add (array, object){
 for (var i = 0; i < array.length; i ++){
-    if ((object.name.length > 0) && (object.species.length > 0) && (object.name !== array[i].name)){
+    if ((object.name.length > 0) && (object.species.length > 0) && (array[i].name !== object.name)){
         array.push(object)
     }else {
         }   
