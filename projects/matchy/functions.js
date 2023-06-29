@@ -39,16 +39,33 @@ function replace (array, string, object){
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+function remove (array, name){
+    for (var i = 0; i < array.length - 1; i++ ){
+        if (array[i].name === name){
+            array.splice(i)
+    } else{
 
+    }
+    }
 
-
-
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// array of animals and object representing new animal 2 b added
+            //animals animal 
+function add (array, object){
+for (var i = 0; i < array.length; i ++){
+    if ((object.name.length > 0) && (object.species.length > 0) && (object.name !== array[i].name)){
+        array.push(object)
+    }else {
+        }   
+    }
+}
 
+add (animals, pig)
 
 /**
  * You did it! You're all done with Matchy!
