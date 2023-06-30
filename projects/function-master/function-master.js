@@ -73,11 +73,13 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    var newObject = ""
-if (object.hasOwnProperty('name')){
-   newObject.push(object["name"].charAt(0).toUpperCase() + object["name"].slice(1));
-
-    return "Welcome " + object[key]["name"] + "!"
+// loop over object
+for (var key in object){
+    // conditional to find out if key equals name
+    if (key === "name"){
+        // return statment with capital letter
+       return "Welcome " + object[key].charAt(0).toUpperCase() + object[key].slice(1) + "!"
+}
 }
 }
 
@@ -86,16 +88,33 @@ if (object.hasOwnProperty('name')){
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-return object.name + "is a " + object.species
-}
+    if (object.name && object.species) {
+        return object.name[0].toUpperCase() + object.name.slice(1) + " is a " + object.species[0].toUpperCase() + object.species.slice(1)
+       
+        }
+    
+
+    }
+    
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    var newString = []
+ 
+    if (Array.isArray(object.noises) && object.noises.length > 0){
+        for (var i = 0; i < object.noises.length; i++ ){
+            newString.push(object.noises[i])
+        
+        }
+        return newString.join(" ")
+    } else {
+        return 'there are no noises'
+    }
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
@@ -103,6 +122,15 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
 
+let splitString = string.split(' ')
+
+for (var i = 0; i < splitString.length; i ++){
+    if (splitString[i].includes(word)){
+        return true
+    } else{
+        return false
+    } 
+}
 }
 
 //////////////////////////////////////////////////////////////////////
