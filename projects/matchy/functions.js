@@ -58,18 +58,21 @@ function remove (array, name){
             //animals animal 
 function add (array, object){
     // loop to access animals array
-    var newObj = []
+    var newArray = []
 for (var i = 0; i < array.length; i ++){
-    if (object.name !== array[i].name && object.species !== array[i].species) {
-            newObj.push(object.name);
+    if (array[i].name === object.name) {
+            newArray.push(array[i].name);
+    }
 
-    } else if (newObj ){
-        
+    }if (newArray !== object ){
+        return object
         
     }else {
+        return null
         }   
     }
-     }
+     
+
 // check to make sure it works
 add (animals, pig)
 

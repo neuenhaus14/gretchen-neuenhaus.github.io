@@ -122,22 +122,30 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
 
+
 let splitString = string.split(' ')
+
 
 for (var i = 0; i < splitString.length; i ++){
     if (splitString[i].includes(word)){
         return true
-    } else{
-        return false
-    } 
+    }   
+}   
+return false
 }
-}
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+//Should take a name and an object and add the name to the object's friends array then return the object
+
+object.friends.push(name)
+
+return object
 
 }
 
@@ -146,22 +154,59 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+// Should take a name and an object and return true if <name> is a friend of <object> and false otherwise 
+// return true is name is in the name array of object
 
+for (var friends in object){
+    if (object.friends.includes(name)){
+        return true  
+    }
 }
+return false 
+}
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+// Should take a name and a list of people, and return a list of all the names that <name> is not friends with 
+// return array of names that name does not include
+
+var newArray = []
+// start with a for loop
+for (var i = 0; i < array.length; i ++){
+    if (!array[i]["friends"].includes(name) && array[i]["name"] !== name)
+      newArray.push(array[i]["name"])
 
 }
+
+return newArray
+}
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+
+//Should update the property <key> on <object> with new <value>. 
+//If <key> does not exist on <object> create it."
+
+for (var key in object){
+    object.key = value
+    if (object !== object.key){
+        return object.key
+    }
+}
+
 
 }
 
@@ -170,6 +215,12 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+// Should take an object and an array of strings. 
+//Should remove any properties on <object> that are listed in <array> 
+
+if (array.includes(object.key)){
+    array.slice(object.key)
+}
 
 }
 
