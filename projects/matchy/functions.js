@@ -55,26 +55,53 @@ function remove (array, name){
 //////////////////////////////////////////////////////////////////////
 
 // array of animals and object representing new animal 2 b added
-            //animals animal 
-function add (array, object){
-    // loop to access animals array
-    var newArray = []
-for (var i = 0; i < array.length; i ++){
-    if (array[i].name === object.name) {
-            newArray.push(array[i].name);
+            //array   object 
+function add (animals, animal){
+
+    var animalNames = []
+    // loop thru array
+for (var i = 0; i < animals.length; i ++){
+    animalNames.push(animals[i].name);
+}
+    if (animal.name.length > 0 && animal.species.length > 0 && !animalNames.includes(animal.name)) {
+           return animals.push(animal)
+    } else{
+        return true
+    }
+ 
+
+
+
+
     }
 
-    }if (newArray !== object ){
-        return object
-        
-    }else {
-        return null
-        }   
-    }
-     
 
-// check to make sure it works
-add (animals, pig)
+
+
+
+
+// for (var i = 0; i < animals.length; i ++){
+//     if (animal.name.length > 0 && animal.species.length > 0 && animal.name !== animals[i].name){
+//                 animals[i].push(animal)
+//             }
+//         }
+// }
+
+
+
+// for (var i = 0; i < array.length; i ++){
+//     if (object.name.length > 0){
+//         if (object.species.length > 0){
+//             if (array[i].name !== object.name){
+//                 array.push(object)
+//             }
+//         }
+//     }
+// }
+
+
+
+
 
 /**
  * You did it! You're all done with Matchy!
