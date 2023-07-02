@@ -21,14 +21,27 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    var value = ""
-    for ( var i = 0; i < object.length; i++){
-        value.push(object[i])
-    if (typeof Object.values(object[i]) === "string"){
+// Should take an object and return all its string values in a string each separated with a space 
+
+    var value = " "
+    for (var key in object){
+        if (typeof Object.values(object[key]) === "string"){
+         value.push(object[key])
+        }
+       
+        }
+ return value
+
+
+
+    // var value = ""
+    // for ( var i = 0; i < object.length; i++){
+    //     value.push(object[i])
+    // if (typeof Object.values(object[i]) === "string"){
          
-    }
-    return value
-    }
+    // }
+    // return value
+    // }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -197,17 +210,11 @@ return newArray
 
 function updateObject(object, key, value) {
 
-//Should update the property <key> on <object> with new <value>. 
-//If <key> does not exist on <object> create it."
+//Should update the property key on object with new value. 
+//If key does not exist on object create it. 
 
-for (var key in object){
-    object.key = value
-    if (object !== object.key){
-        return object.key
-    }
-}
-
-
+object[key] = value;
+  return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -216,19 +223,71 @@ for (var key in object){
 
 function removeProperties(object, array) {
 // Should take an object and an array of strings. 
-//Should remove any properties on <object> that are listed in <array> 
+// Should remove any properties on <object> that are listed in <array> 
+// if object properties (and values) match the array, remove the matching properties/values from obj
 
-if (array.includes(object.key)){
-    array.slice(object.key)
+for (var key in object){
+if ((object[key] === array)){
+        delete Object[key]
+
+    }
+}
 }
 
-}
+
+
+// for (var key in object){
+// if (array.includes(object[key])){
+//         delete Object[key]
+
+//     }
+// }
+// return object
+// }
+
+// for (var key in object){
+//     if (array.hasOwnProperty(object[key])){
+//        delete Object[key]
+//     }
+//     }
+//     return object 
+    
+//     }
+
+
+// for (var i = 0; i < array.length; i ++){
+//     if (object[key] === array[i]){
+//         delete object[key]
+//     }
+
+// }
+// return object 
+
+
+// }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    // Should take an array and return an array with all the duplicates removed
+
+return [...new Set(array)]
+
+
+
+
+// newArray = []
+
+// for (var i = 0; i < array.length; i++){
+//     if (array[i] === array[i]){
+//         newArray.push(array[i])
+
+//     }
+// }
+//     return array
 
 }
 
