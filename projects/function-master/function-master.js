@@ -226,6 +226,12 @@ function removeProperties(object, array) {
 // Should remove any properties on <object> that are listed in <array> 
 // if object properties (and values) match the array, remove the matching properties/values from obj
 
+README.md
+
+
+
+
+
 // for (var key in object){
 // if ((object[key] === array)){
 //         delete Object[key]
@@ -256,8 +262,8 @@ function removeProperties(object, array) {
 
 
 for (var i = 0; i < array.length; i ++){
-    if (object[key] === array[i]){
-        delete object[key]
+    if (object.hasOwnProperty(array[i]) === true){ // if true or false 
+        delete object[key] 
     }
 
 }
@@ -265,7 +271,6 @@ return object
 
 
 }
-
 
 
 
