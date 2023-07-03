@@ -23,26 +23,41 @@ function keysToString(object) {
 function valuesToString(object) {
 // Should take an object and return all its string values in a string each separated with a space 
 
-    var value = " "
-    for (var key in object){
-        if (typeof Object.values(object[key]) === "string"){
-         value.push(object[key])
-        }
-       
-        }
- return value
-
-
-
-    // var value = ""
-    // for ( var i = 0; i < object.length; i++){
-    //     value.push(object[i])
-    // if (typeof Object.values(object[i]) === "string"){
-         
-    // }
-    // return value
-    // }
+var value = [ ]
+for (var key in object){
+    if (typeof object[key] === "string"){
+     value.push(object[key])
+    }
+   
+    }
+return value.join(" ")
 }
+
+// var value = [ ]
+// for (var key in object){
+//     if (typeof Object.values(object[key]) === "string"){
+//      value.push(object[key])
+//     }
+   
+//     }
+// return value.join(" ")
+// }
+
+
+// var value = ""
+// for ( var i = 0; i < object.length; i++){
+//     value.push(object[i])
+// if (typeof Object.values(object[i]) === "string"){
+     
+// }
+// return value
+// }
+// }
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
@@ -226,10 +241,17 @@ function removeProperties(object, array) {
 // Should remove any properties on <object> that are listed in <array> 
 // if object properties (and values) match the array, remove the matching properties/values from obj
 
-README.md
+
+for (var i = 0; i < array.length; i ++){
+    if (object.hasOwnProperty(array[i]) === true){ // if true or false 
+        delete object[array[i]] 
+    }
+
+}
+return object 
 
 
-
+}
 
 
 // for (var key in object){
@@ -261,16 +283,16 @@ README.md
 //     }
 
 
-for (var i = 0; i < array.length; i ++){
-    if (object.hasOwnProperty(array[i]) === true){ // if true or false 
-        delete object[key] 
-    }
+// for (var i = 0; i < array.length; i ++){
+//     if (object.hasOwnProperty(array[i]) === true){ // if true or false 
+//         delete object[key] 
+//     }
 
-}
-return object 
+// }
+// return object 
 
 
-}
+// }
 
 
 

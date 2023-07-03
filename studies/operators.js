@@ -34,9 +34,16 @@ var b = 4 - 2 // 2
 
 // 2. Assignment Operators
 var x = y // var x = y 
+x += y; //  x = x + y
+x -= y; //  x = x - y
+x *= y; //  x = x * y
+x /= y; //  x = x / y
+x %= y; //  x = x % y
 
+// 3. Comparison Operators
 
-
+3 == "3" // Equal, resolves to true
+2 != 
 
 // 3: Hoisting: \
 
