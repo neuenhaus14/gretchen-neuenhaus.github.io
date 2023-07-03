@@ -8,20 +8,19 @@
     Arithmetic Operators
     Assignment Operators
     Comparison Operators
-    String Operators
     Logical Operators
     Ternary Operators
-    Type Operators
+    Unary Operators
+    
 
  2: Uses: 
     Arithmetic Operators => used to do arithmetic using numbers.
     Assignment Operators => assign the left value of the operator to the right side
     Comparison Operators => The operands can be numerical, string, logical, or object values. These compare 
                             operands and return a Boolean based on if the comparison is true. 
-    String Operators => concatenates (combines) two string values together and returns the new (combined) string 
     Logical Operators => typically used with Boolean values to return a boolean value
     Ternary Operators => only operator that only takes three operands. Can use it anywhere you would use a standard operator.
-    Type Operators => returns a string indicating the type of the operand
+    Unary Operators => only needs one operand. Can come before or after the operand
 
 
  * */
@@ -43,8 +42,27 @@ x %= y; //  x = x % y
 // 3. Comparison Operators
 
 3 == "3" // Equal, resolves to true
-2 != 
+2 != 4 // Not Equal, resolves to true
+3 === "3" // Strictly Equal, resolves to false
+2 !== 4 // Strictly Not Equal, resolves to true
+4 > 2 // Greater than, resolves to true 
+4 >= 4 // Greater than or Equal to, resolves to true 
+4 < 2 // Less than, resolves to true 
+4 <= 4 // Less than or Equal to, resolves to true 
 
-// 3: Hoisting: \
+
+// 4. Logical Operators
+
+expr1 && expr2 // Logical AND, returns true only if both expressions are true
+expr1 || expr2 // Logical OR, returns true only if either of the expressions is true, if both are false, then false
 
 
+// 5. Urnary Operators
+!expr // Logical NOT, this should convert the false operand to true, otherwise still returns true
+
+var num = 17;
+typeof num; // typeOf, returns a string of the data type, "number"
+
+- 3 // Negation, precedes the operator and negates it
+- true // -1 , works on non numbers as well
+- false // -0
