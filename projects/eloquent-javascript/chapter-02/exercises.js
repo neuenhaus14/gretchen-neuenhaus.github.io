@@ -5,11 +5,12 @@
 
 function triangles(number) { // requires a parameter
 
-for (let i = "#"; i.length < 8; i + "#" ){
+for (let i = number; i < 8; i += number ){
 
-console.log("#")
-
+triangles("#")
 }
+console.log(triangles("#"))
+
 }
 
 
