@@ -107,7 +107,7 @@ _.first = function (array, number){
         return []
     // Otherwise, return the first <number> items of <array>
     } else {
-        return array[number] // "c"
+        return array += array[number]  // "c"
     }
 }
 
@@ -209,16 +209,13 @@ _.indexOf = function (array, value){
 
 
 _.contains = function (array, value){
-    for (var i = 0; i < array.length; i++){
-        if(
-             array[i] === value ? true : false){
+    
+    if(array.includes(value)){
         return true
-        } else{
+    } else{
         return false  
         }
-
-            
-    }
+  
 }
 
 
@@ -294,6 +291,28 @@ _.unique =  function (array){
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter = function (array, func){
+    let newArray = []
+    for (let i = 0; i < array.length; i++){
+        // call <function> once for each element
+        func(array[i], i, array) // passing in the arguments: the element, it's index, <array>
+            if (true){
+                newArray.push(array[i])
+            } else{
+
+            }
+            return newArray 
+       }
+    
+
+    
+
+} 
+
+
+
+
 
 
 /** _.reject
