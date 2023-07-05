@@ -69,7 +69,6 @@ if (typeof value === "string"){
     return "function"
 }
 
-
 }
 
 
@@ -418,7 +417,7 @@ _.map = function (collection, func){
             return firstArray 
 
     } else { // else it's an object
-        // iterate trhough collection
+        // iterate through collection
         for (var key in collection){
             func(collection[key], [key], collection)
             secondArray.push((func(collection[key], [key], collection)))
