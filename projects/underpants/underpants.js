@@ -364,6 +364,29 @@ _.reject = function(array, func){
 }
 */
 
+_.partition = function (array, func){
+   var truthyArray = [];
+    var falsyArray = [];
+    var oneArray = [];
+    
+    for (let i = 0; i < array.length; i++){ // call <function> once for each element
+        
+        func(array[i], i, array) // passing in the arguments: the element, key, <array>
+            if (func(array[i], i, array) === true){
+                truthyArray.push(array[i]);
+
+            }else { //(func(array[i], i, array === false)){
+                falsyArray.push(array[i]);
+            }
+
+    }
+     oneArray.push(truthyArray)
+     oneArray.push(falsyArray)
+     return oneArray
+}
+
+
+
 
 /** _.map
 * Arguments:
@@ -380,6 +403,31 @@ _.reject = function(array, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
+_.map = function (collection, func){
+    var firstArray = [];
+    var secondArray = [];
+   
+
+// determine if collection is array
+    if (Array.isArray(collection) ){
+        // iterate through  array
+        for (let i = 0; i < collection.length; i++)
+        // call <function> once for each element
+            firstArray.push(func(collection[i], i, collection))
+            return firstArray 
+
+    } else { // else it's an object
+        // iterate trhough collection
+        for (var key in collection){
+            func(collection[key], [key], collection)
+            secondArray.push((func(collection[key], [key], collection)))
+            
+        }
+    }
+return secondArray
+}
+
 
 
 /** _.pluck
