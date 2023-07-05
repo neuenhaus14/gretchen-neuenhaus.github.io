@@ -107,7 +107,7 @@ _.first = function (array, number){
         return []
     // Otherwise, return the first <number> items of <array>
     } else {
-        return array += array[number]  // "c"
+        return array.slice(0, number)
     }
 }
 
@@ -148,7 +148,7 @@ _.last = function (array, number){
         return []
     // Otherwise, return the first <number> items of <array>
     } else {
-        return array[number] // "c"
+        return array.slice(number-1)
     }
 
 }
@@ -297,20 +297,17 @@ _.filter = function (array, func){
     for (let i = 0; i < array.length; i++){
         // call <function> once for each element
         func(array[i], i, array) // passing in the arguments: the element, it's index, <array>
-            if (true){
+            if (func(array[i], i, array) === true){
                 newArray.push(array[i])
             } else{
-
             }
-            return newArray 
+           
        }
     
-
+return newArray 
     
 
 } 
-
-
 
 
 
@@ -327,6 +324,25 @@ _.filter = function (array, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+
+
+_.reject = function(array, func){
+    let newArray = []
+    for (let i = 0; i < array.length; i++){
+        // call <function> once for each element
+        func(array[i], i, array) // passing in the arguments: the element, it's index, <array>
+            if (func(array[i], i, array) === false){
+                newArray.push(array[i])
+            }else {
+
+            }
+    
+    }
+   return newArray 
+}
+
+
 
 
 /** _.partition
@@ -399,6 +415,38 @@ _.filter = function (array, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function (collection, func){
+// if array
+if (Array.isArray(collection)){
+// if function did not receive a value
+    if(!func){ // determine if func not truthy (null, undefined, 0, -0, NaN)
+        for (let i =0; i < collection.length; i++){ 
+            // determine if current array is NOT truthy
+            if (!collection[i]){
+                return false
+            }    
+            
+        }
+    } else{ // else func did not receive a value
+        for (let i =0; i < collection.length; i++){ 
+            // determine if result of invoking func on currect array value is FALSE
+                // return false
+
+        }
+    }
+
+}else {// else it's an object
+
+}
+
+return true; // if we reach this point, every balue 
+
+}
+
+
+
+
+
 
 /** _.some
 * Arguments:
@@ -422,7 +470,7 @@ _.filter = function (array, func){
 */
 
 
-/** _.reduce
+/** _.reduce // this will be in class
 * Arguments:
 *   1) An array
 *   2) A function
