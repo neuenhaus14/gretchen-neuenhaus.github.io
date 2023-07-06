@@ -269,7 +269,8 @@ if (Array.isArray(collection) ){
 
 _.unique =  function (array){
     return [...new Set(array)]
-
+    
+    
 
 }
 
@@ -406,7 +407,6 @@ _.partition = function (array, func){
 _.map = function (collection, func){
     var firstArray = [];
     var secondArray = [];
-   
 
 // determine if collection is array
     if (Array.isArray(collection) ){
@@ -427,6 +427,11 @@ _.map = function (collection, func){
 return secondArray
 }
 
+var arr = [1, 2, 3];
+
+var example = _.map(arr, function(x){
+  return x + 100;
+});
 
 
 /** _.pluck
@@ -439,6 +444,17 @@ return secondArray
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+
+_.pluck = function (array, property){
+
+    return _.map (array, function(obj){ // okay s
+        return obj[property]
+    })
+    
+}
+
+
 
 
 /** _.every
@@ -472,7 +488,6 @@ if (Array.isArray(collection)){
             if (!collection[i]){
                 return false
             }    
-            
         }
     } else{ // else func did not receive a value
         for (let i =0; i < collection.length; i++){ 
@@ -551,6 +566,19 @@ return true; // if we reach this point, every balue
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function (object){
+    var updated = {}
+    for (var key in object){
+        var copy = Object.assign({}, object[key], object[key], object[key])
+        updated.copy
+    }
+    return updated
+}
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
