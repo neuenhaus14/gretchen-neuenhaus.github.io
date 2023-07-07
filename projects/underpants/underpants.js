@@ -178,9 +178,7 @@ _.indexOf = function (array, value){
         if (array[i] === value){
             // Return the index of <array> that is the first occurrance of <value>
             return i
-
-         } else {
-            
+         
         }
       // Return -1 if <value> is not in <array>  
     } return -1
@@ -268,9 +266,17 @@ if (Array.isArray(collection) ){
 
 
 _.unique =  function (array){
-    return [...new Set(array)]
+    // return [...new Set(array)]
     
-    
+    let output = []
+
+for (let i = 0; i < array.length; i++){
+    if (_.indexOf(output,array[i]) === -1){
+        output.push(array[i])
+    }
+}
+
+    return output
 
 }
 
@@ -551,6 +557,32 @@ return true; // if we reach this point, every balue
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function (array, func, seed){
+let result; 
+// determine if seed wasn't passed in
+    if (seed === undefined){ // determine if seed is falsey
+        result = array[0]; // making this it's seed value
+        for (let i = 1; i < array.length; i++)// becuase you assigned the first index to seed, you start at the next
+        //index, being 1... you've taken care of the 0 index... you dont need to loop over it. 
+        result = func(result,array[i], i)
+}   else{
+        result = seed;
+        for (let i =0; i <array.length; i++){
+            result = func(result,array[i], i) // resassign result to what the callbal function returns
+        }
+    }
+
+return result;
+
+    
+
+};
+
+
+
+
+
+
 
 /** _.extend
 * Arguments:
@@ -567,12 +599,21 @@ return true; // if we reach this point, every balue
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function (object){
+_.extend = function (target, ...objects){ // pass in additinal inputs and they will be passed into an array
+    // iterate thru array and acces inputs one at a time
+    // Array.from(arguments)
+
     var updated = {}
-    for (var key in object){
-        var copy = Object.assign({}, object[key], object[key], object[key])
+
+    for (var i = 0; i < objects.length; i++){
+        var copy = Object.assign(target, objects[i])
         updated.copy
     }
+
+    // for (var key in object){
+    //     var copy = Object.assign({}, object[key], object[key], object[key])
+    //     updated.copy
+    
     return updated
 }
 
