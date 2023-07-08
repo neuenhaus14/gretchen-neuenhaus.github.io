@@ -454,7 +454,7 @@ var example = _.map(arr, function(x){
 
 _.pluck = function (array, property){
 
-    return _.map (array, function(obj){ // okay s
+    return _.map (array, function(obj){ 
         return obj[property]
     })
     
@@ -601,7 +601,7 @@ return false;
 *   1) Call <function> for every element in <collection> passing the arguments:
 *         previous result, element, index
 *   2) Use the return value of <function> as the "previous result"
-*      for the next iteration
+*      for the next iteration   
 *   3) On the very first iteration, use <seed> as the "previous result"
 *   4) If no <seed> was given, use the first element/value of <collection> as <seed> and continue to the next element
 *   5) After the last iteration, return the return value of the final <function> call
@@ -625,11 +625,7 @@ let result;
             result = func(result,array[i], i) // resassign result to what the callbal function returns
         }
     }
-
 return result;
-
-    
-
 };
 
 

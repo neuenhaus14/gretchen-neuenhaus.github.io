@@ -167,7 +167,8 @@ module.exports.identity = identity;
 
 
 /**
- * unique: Function that takes in an array, and returns a new array with all the duplicates removed.  
+ * unique: Function that takes in an array, and returns a new array with all the duplicates removed. 
+ * Uses the function indexOf. 
  * 
  * 
  * @param {array}: function takes in an array.
@@ -175,9 +176,17 @@ module.exports.identity = identity;
  *  
  */
 
- function unique(array){
-    return [...new Set(array)]
+function unique (array){
+    let output = []
+
+for (let i = 0; i < array.length; i++){
+    if (_.indexOf(output,array[i]) === -1){
+        output.push(array[i])
+    }
 }
+    return output
+}
+
 
 /**
  * filter: Designed to loop over an Array, and applies the action Function to each value in the array to return a new array.
@@ -283,3 +292,132 @@ module.exports.identity = identity;
     }
     return secondArray
 }
+
+ /**
+ * pluck: Returns the value of each property for every element in the array. 
+ * The map function will be used.   
+ * 
+ * @param {Array}: The array over which to iterate.
+ * @param {Function} action: The Function to be applied to each value in the array
+ * 
+ * @returns {array}: function returns a new array filled with just object properties.
+ *  
+ */
+
+
+function pluck (array, property){
+    return _.map (array, function(obj){ 
+        return obj[property]
+    })
+}
+
+ /**
+ * every: Designed to loop over a collection, Array or Object, and applies the function to each value in 
+ *        the collection. Should return true when all iterations are true, and false when not all iterations 
+ *        are true. This function returns a boolean after evaluating truthyness. 
+ * 
+ * @param {Array or Object} collection: The collection over which to iterate.
+ * @param {Function} action: The Function to be applied to each value in the collection
+ * 
+ * @returns {array}: function returns a a boolean
+ * 
+ */
+  function every(collection, func){
+        if (Array.isArray(collection)){
+            if(!func){ 
+                for (let i =0; i < collection.length; i++){ 
+                    if (!collection[i]){
+                        return false
+                    }    
+                }
+            } else{ 
+                for (let i =0; i < collection.length; i++){ 
+                    if (func(collection[i], i, collection) === false)
+                        return false
+                }
+            }
+        }else {
+        }   
+    return true; 
+    }
+
+ /**
+ * some: Designed to loop over a collection, Array or Object, and applies the 
+ *       function to each value in the collection. Should return true when at least one iteration is true and 
+         false when no iterations are true. This function returns a boolean after evaluating truthyness. 
+ * 
+ * @param {Array or Object} collection: The collection over which to iterate.
+ * @param {Function} action: The Function to be applied to each value in the collection
+ * 
+ * @returns {array}: function returns a a boolean
+ * 
+ */
+
+ function some(collection, func){ 
+            if (Array.isArray(collection)){
+                    for (let i = 0; i < collection.length; i ++){
+                        if (!func){
+                            if (collection[i]){
+                            return true;
+                            }
+                        }else {
+                            if (func(collection[i], i, collection)){
+                                return true 
+                            }    
+                        }
+                    }    
+            } else {
+                for (var i in collection){
+                   if (!func){
+                        if (collection[i]){
+                            return true
+                        }
+                   } else{
+                     if (func(collection[i], i, collection)){
+                        return true 
+                        }    
+                   }
+                }
+        
+            }  
+        return false; 
+        }      
+        
+        
+ /**
+ * reduce: Designed to loop over a an array, function, and seed and applies the 
+ *       function to the previous result in the array. This function returns the previous sum and the current value. 
+ * 
+ * @param {Array} collection: The array of numbers over which to iterate.
+ * @param {Function} action: The Function to be applied to to the previous result in the array
+ * @paramm {seed}: The starting point for the current value.
+ * 
+ * @returns {array}: function returns a sum of the array.
+ * 
+ */
+
+ function reduce(array, func, seed){
+    let result; 
+        if (seed === undefined){ 
+            result = array[0]; 
+            for (let i = 1; i < array.length; i++)
+            result = func(result,array[i], i)
+    }   else{
+            result = seed;
+            for (let i =0; i <array.length; i++){
+                result = func(result,array[i], i) 
+            }
+        }
+    return result;
+    };
+
+ /**
+ * extend: Designed to extend an object and overwrite the existing properties. This function should take
+ *         in any number of arguments.
+ * 
+ * @param {target} : The object where the extended objects will be written into
+ * @param {objects} : Any number of objects that will have their properties copied
+ * 
+ * @returns {target}: The target is returned filled with the properties of the other objects.
+ * 
+ */
