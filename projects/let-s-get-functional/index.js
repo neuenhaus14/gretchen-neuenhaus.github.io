@@ -23,11 +23,11 @@ var _ = require('underbar');
 
 var maleCount = function(array) {
 
-let males = _.filter(array, function(customer){
-    return customer.gender === 'male';
+let males = _.filter(array, function(customers){
+    return customers.gender === 'male';
     }); // filter and map always return arrays
 
-    return male.length
+return customers['gender'].length
 
 };
 

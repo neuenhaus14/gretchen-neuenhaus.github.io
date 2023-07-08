@@ -498,20 +498,18 @@ _.every = function (collection, func){
         } else{ // else func did not receive a value
             for (let i =0; i < collection.length; i++){ 
             // determine if result of invoking func on currect array value is FALSE
-                // return false
-
+                if (func(collection[i], i, collection) === false)
+                    return false
             }
         }
 
     }else {// else it's an object
-
+        
     }   
 
-return true; // if we reach this point, every balue 
+return true; // if we reach this point, every value is true 
 
 }
-
-
 
 
 
@@ -538,9 +536,60 @@ return true; // if we reach this point, every balue
 */
 
 
-_.some = function (){
+_.some = function (collection, func){ 
+    console.log(collection)
+    if (Array.isArray(collection)){
+            for (let i = 0; i < collection.length; i ++){
+                if (!func){
+                    if (collection[i]){
+                    return true;
+                    }
+                }else {
+                    if (func(collection[i], i, collection)){
+                        return true 
+                    }    
+                }
+            }    
+    } else {
+        for (var i in collection){
+           if (!func){
+                if (collection[i]){
+                    return true
+                }
+           } else{
+             if (func(collection[i], i, collection)){
+                return true 
+                }    
+           }
+        }
 
+    }  
+return false; 
 }
+
+// _.some = function (collection, func){
+//     if (Array.isArray(collection)){
+//         if (!func){
+//             for (let i = 0; i < collection.length; i ++){
+//                 if (!collection[i]){
+//                     return false;
+//                 }
+//             }    
+//         } else{
+//             for (let i = 0; i < collection.length; i ++){
+//                 if (collection[i] === false){
+//                     return false
+                
+//                 }
+                
+//             }
+//         }    
+        
+//     } else {
+
+//     }    
+// return true;
+// }
 
 
 /** _.reduce // this will be in class
