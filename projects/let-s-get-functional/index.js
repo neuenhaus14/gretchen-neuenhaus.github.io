@@ -27,18 +27,37 @@ let males = _.filter(array, function(customers){
     return customers.gender === 'male';
     }); // filter and map always return arrays
 
-return customers['gender'].length
+return males.length
 
 };
 
-var femaleCount;
+var femaleCount = function(array){
 
-var oldestCustomer = function (array,){
-    let oldest = _.reduce(array, function (accumulator, current){
+// let females = _.filter(array, function(customers){
+//     return customers.gender === "female";
+//     });
+
+// return females.length
+
+// };
+
+    let females = _.reduce(array, function (total, amount){
+        if (customers.gender === "female"){
+            return total.gender + amount.gender
+            }});
+
+    return females   
+};
+
+
+
+
+var oldestCustomer = function (array){
+      let oldest = _.reduce(array, function (accumulator, current){
         if (accumulator.age > current.age){
-            return accumulator
+            return accumulator.name
         } else{
-            return current;
+            return current.name;
         }
         // determine if accumlator is older than current 
             // if true return accumulator
@@ -47,14 +66,29 @@ var oldestCustomer = function (array,){
 
     });
 
-    //return oldest as a string
+    return oldest
+//     //return oldest as a string
 }
 
-// invoke reduce. is seed undefined? yes, assign seed to 0 index in array
+// invoke reduce. is seed undefined?    yes, assign seed to 0 index in array
 // now iterate and hit the code 
 
 
-var youngestCustomer;
+var youngestCustomer = function (array){
+    let youngest = _.reduce(array, function (accumulator, current, seed){
+        seed = 0
+        if (accumulator.age < current.age){
+            return accumulator.name
+        } else{
+            return current.name;
+        }
+
+    });
+
+    return youngest
+
+
+};
 
 var averageBalance; // skip this bish
 

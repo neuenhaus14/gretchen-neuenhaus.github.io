@@ -42,7 +42,7 @@ const _ = require('lodown-oliviasaborush');
  - **Constraints**: use `reduce`
 
 ### 3: `oldestCustomer`
- - **Objective**: Find the oldest customer's name
+ - **Objective**: Find the old  est customer's name
  - **Input**: `Array`
  - **Output**: `String`
  - **Constraints**:
