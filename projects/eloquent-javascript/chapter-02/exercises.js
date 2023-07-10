@@ -3,12 +3,12 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles(number) { // requires a parameter
+function triangles(string) { // requires a parameter
 
-for (let i = number; i < 8; i += number ){
-
-triangles("#")
+for (let i = string; i < 8; i += string ){
 }
+triangles("#")
+
 console.log(triangles("#"))
 
 }

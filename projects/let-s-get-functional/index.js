@@ -32,51 +32,45 @@ return males.length
 };
 
 var femaleCount = function(array){
+// reduce function loops through array of objs. returns sum as number value
+    let females = _.reduce(array, function (accumulator, current){ // loops thru arr objs applying func to each obj
+    
+        if (current.gender === "female"){ // only count the females. access gender through dot notation
+        accumulator += 1 // want to add total count of gender to current gender count
+        }
 
-// let females = _.filter(array, function(customers){
-//     return customers.gender === "female";
-//     });
+        return accumulator
 
-// return females.length
+    }, 0 );
 
-// };
-
-    let females = _.reduce(array, function (total, amount){
-        if (customers.gender === "female"){
-            return total.gender + amount.gender
-            }});
-
-    return females   
+return females  // this should return a number value 
 };
-
-
-
+    
 
 var oldestCustomer = function (array){
-      let oldest = _.reduce(array, function (accumulator, current){
-        if (accumulator.age > current.age){
-            return accumulator.name
+    // reduce function loops through array of objs. returns sum as number value
+      let oldest = _.reduce(array, function (accumulator, current){ // loops thru arr objs applying func to each obj
+        if (accumulator > current.age){ // if age of obj[i] is greater than current obj
+            return accumulator.name //  return the obj[i] name
         } else{
-            return current.name;
+            return current.name; // if we're here, this means the current obj is older than the previous ones... 
         }
-        // determine if accumlator is older than current 
+    }, "");
+
+    return oldest // return oldest as a string
+     
+}
+    // determine if accumlator is older than current 
             // if true return accumulator
         // else 
             // return current
-
-    });
-
-    return oldest
-//     //return oldest as a string
-}
-
 // invoke reduce. is seed undefined?    yes, assign seed to 0 index in array
 // now iterate and hit the code 
 
 
 var youngestCustomer = function (array){
     let youngest = _.reduce(array, function (accumulator, current, seed){
-        seed = 0
+        
         if (accumulator.age < current.age){
             return accumulator.name
         } else{
@@ -86,13 +80,20 @@ var youngestCustomer = function (array){
     });
 
     return youngest
-
-
 };
 
-var averageBalance; // skip this bish
+var averageBalance; // skip this one
 
-var firstLetterCount;
+var firstLetterCount = function (array, letter){
+    let countFirstLetter =  _.filter(array, function (customers){
+    let nameLowerCase = array.name.toLowerCase()
+    let letterLowerCase = letter.toLowerCase()
+    return nameLowerCase[0] === letterLowerCase
+    });
+
+return countFirstLetter 
+
+}
 
 var friendFirstLetterCount;
 
@@ -100,8 +101,11 @@ var friendsCount;
 
 var topThreeTags;
 
-var genderCount;
+var genderCount = function (array){
 
+
+
+};
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
