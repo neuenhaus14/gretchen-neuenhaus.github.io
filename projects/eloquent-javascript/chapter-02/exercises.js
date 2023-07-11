@@ -3,15 +3,18 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles(string) { // requires a parameter
+function triangles(input) { // requires a parameter
 
-for (let i = string; i < 8; i += string ){
+  let hashString = ""
+
+for (let i = 0; i < input; i ++ ){
+  hashString += "#"
+  console.log(hashString);
 }
-triangles("#")
-
-console.log(triangles("#"))
-
+  
 }
+triangles(7)
+
 
 
 

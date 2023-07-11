@@ -85,9 +85,9 @@ var youngestCustomer = function (array){
 var averageBalance; // skip this one
 
 var firstLetterCount = function (array, letter){
-    let countFirstLetter =  _.filter(array, function (customers){
+    let countFirstLetter =  _.filter(array, function (customer){
 
-    return customers.name[0].toLowerCase() === letter.toLowerCase();
+    return customer.name[0].toLowerCase() === letter.toLowerCase();
     
     });
 
@@ -96,18 +96,27 @@ return countFirstLetter.length;
 }
 
 var friendFirstLetterCount = function (array, customer, letter){
-    let friends = _.filter(array, function(customers){
+    let theCustomer = _.filter(array, function(cust){ // refrring to the customer object
+       return cust.name === customer; // if true, the new array of the customer is in the new variable
+    });
 
-       return customers.friends.name[0].toLowerCase() === letter.toLowerCase();
+    let theCustomerFriends = _.filter(theCustomer[0].friends, function(friend){
+        if (friend.name[0].toLowerCase() === letter.toLowerCase()){
+            return true;
+        } else{
+            return false;
+        }
 
     });
-    return friends.length;
+
+     return theCustomerFriends.length
 }
 
 var friendsCount = function (array, name){
 //Find the customers' names that have a given customer's name in their friends list
-let friendNames = _.filter (array, function (customers){
-    return customers.name === customers.friends.name
+let friendNames = _.filter (array, function (customer){
+   return customer.friends[0].name === name
+    
 
     });
 
@@ -118,18 +127,18 @@ return friendNames
 
 // return the array of the customer
 
-
-
-
-
 var topThreeTags;
 
 var genderCount = function (array){
 // reduce function loops through array of objs.
+                                            // tally   // current value
 let countGender = _.reduce(array, function (accumulator, current){ 
-    if (current.gender === "female" && current.gender === "male" && current.gender === "non-binary"){
+    if (current.gender === array.gender){ // if current index gender is strictly equal to ...
         accumulator += 1
-
+    // } else if (current.gender === "male"){
+    //     accumulator += 1
+    // } else if (current.gender === "non-binary"){
+    //     accumulator += 1
     }
         return accumulator
 
