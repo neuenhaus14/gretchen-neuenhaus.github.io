@@ -50,14 +50,14 @@ return females  // this should return a number value
 var oldestCustomer = function (array){
     // reduce function loops through array of objs. returns sum as number value
       let oldest = _.reduce(array, function (accumulator, current){ // loops thru arr objs applying func to each obj
-        if (accumulator > current.age){ // if age of obj[i] is greater than current obj
-            return accumulator.name //  return the obj[i] name
+        if (accumulator.age > current.age){ // if age of obj[i] is greater than current obj
+            return accumulator //  return the obj[i] name
         } else{
-            return current.name; // if we're here, this means the current obj is older than the previous ones... 
+            return current; // if we're here, this means the current obj is older than the previous ones... 
         }
     }, "");
 
-    return oldest // return oldest as a string
+    return oldest.name // return oldest as a string
      
 }
     // determine if accumlator is older than current 
@@ -72,40 +72,72 @@ var youngestCustomer = function (array){
     let youngest = _.reduce(array, function (accumulator, current, seed){
         
         if (accumulator.age < current.age){
-            return accumulator.name
+            return accumulator
         } else{
-            return current.name;
+            return current;
         }
 
     });
 
-    return youngest
+    return youngest.name;
 };
 
 var averageBalance; // skip this one
 
 var firstLetterCount = function (array, letter){
     let countFirstLetter =  _.filter(array, function (customers){
-    let nameLowerCase = array.name.toLowerCase()
-    let letterLowerCase = letter.toLowerCase()
-    return nameLowerCase[0] === letterLowerCase
+
+    return customers.name[0].toLowerCase() === letter.toLowerCase();
+    
     });
 
-return countFirstLetter 
+return countFirstLetter.length; 
 
 }
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function (array, customer, letter){
+    let friends = _.filter(array, function(customers){
 
-var friendsCount;
+       return customers.friends.name[0].toLowerCase() === letter.toLowerCase();
+
+    });
+    return friends.length;
+}
+
+var friendsCount = function (array, name){
+//Find the customers' names that have a given customer's name in their friends list
+let friendNames = _.filter (array, function (customers){
+    return customers.name === customers.friends.name
+
+    });
+
+return friendNames
+
+}
+// find the all the customers that are friends with name 
+
+// return the array of the customer
+
+
+
+
 
 var topThreeTags;
 
 var genderCount = function (array){
+// reduce function loops through array of objs.
+let countGender = _.reduce(array, function (accumulator, current){ 
+    if (current.gender === "female" && current.gender === "male" && current.gender === "non-binary"){
+        accumulator += 1
 
+    }
+        return accumulator
 
-
-};
+    }, { });
+    
+return countGender
+         
+    }
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
