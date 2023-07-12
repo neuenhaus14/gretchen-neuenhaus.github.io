@@ -113,19 +113,25 @@ var friendFirstLetterCount = function (array, customer, letter){
 }
 
 var friendsCount = function (array, name){
-//Find the customers' names that have a given customer's name in their friends list
-let friendNames = _.filter (array, function (customer){
-   return customer.friends[0].name === name
-    
+// declare output variable as an array
+let output = []
+// loop through array/customer
+for (let i = 0; i < array.length; i++){
+    // loop through customers friends array
+    for (let j = 0; j < array[i].friends.length; j++){
+        // the customers friends obj's name is the same as input name
+        if (array[i].friends[j].name === name){
+            // push the customers name to the output array
+            output.push(array[i].name);
+        }
+    }
+}
 
-    });
 
-return friendNames
+return output;
 
 }
-// find the all the customers that are friends with name 
 
-// return the array of the customer
 
 var topThreeTags;
 
@@ -134,13 +140,13 @@ var genderCount = function (array){
                                             // tally   // current value
 let countGender = _.reduce(array, function (accumulator, current){ 
     if (current.gender === array.gender){ // if current index gender is strictly equal to ...
-        accumulator += 1
+          accumulator.push(current.gender)
     // } else if (current.gender === "male"){
     //     accumulator += 1
     // } else if (current.gender === "non-binary"){
     //     accumulator += 1
     }
-        return accumulator
+       
 
     }, { });
     
