@@ -138,19 +138,47 @@ var topThreeTags;
 var genderCount = function (array){
 // reduce function loops through array of objs.
                                             // tally   // current value
+
+// let females = []
+// for (var i = 0; i < array.length; i++){
+//     if (array[i].gender === "female"){
+//         females.push(array[i].gender);
+//     }
+//     return females.length
+// }
+
+
+
 let countGender = _.reduce(array, function (accumulator, current){ 
-    if (current.gender === array.gender){ // if current index gender is strictly equal to ...
-          accumulator.push(current.gender)
-    // } else if (current.gender === "male"){
-    //     accumulator += 1
-    // } else if (current.gender === "non-binary"){
-    //     accumulator += 1
-    }
-       
+    if (current.gender === "female"){ // if current index gender is strictly equal to ...
+          accumulator.female = array.reduce(function(acc2, curr2){ 
+              if (curr2.gender === "female"){
+                acc2 += 1
+            }
+              return acc2
+          }, 0);
+    } else if (current.gender === "male"){
+            accumulator.male = array.reduce(function(acc2, curr2){
+                if (curr2.gender === "male"){
+                    acc2 += 1
+                } 
+                    return acc2 
+            }, 0);
+    } else if (current.gender === "non-binary"){
+            accumulator["non-binary"] = array.reduce(function(acc2, curr2){
+                if (curr2.gender === "non-binary"){
+                    acc2 += 1
+                } 
+                    return acc2 
+            }, 0);
+        }
+     return accumulator;
+    
+
 
     }, { });
     
-return countGender
+return countGender;
          
     }
 //////////////////////////////////////////////////////////////////////

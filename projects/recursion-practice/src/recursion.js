@@ -172,17 +172,6 @@ var palindrome = function(string) {
 
 
 };
-// // base
-//  if (string === output){
-//   return true
-//   } 
-
-  
-//   output += (string[string.length-1])
-  
-//   return palindrome(string.substr(0, string.length -1), output)
-
- 
 
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -201,6 +190,10 @@ var modulo = function(x, y) {
 
 var multiply = function(x, y) {
 
+if (y === 0){
+  return 0
+}
+return x + multiply(x, y - 1)
 
 };
 
