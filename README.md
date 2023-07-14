@@ -11,12 +11,6 @@
 8) Select project to install
 
 
-# First Website => index.html
-1) Complete Todos 2-10
-
-# Portfolio Page => portfolio.html
-1) Complete TODOs 2-5
-
 # Git Commands- Save your work
 1) In terminal, type => git add -A
 2) In terminal, type => git commit -m "description"

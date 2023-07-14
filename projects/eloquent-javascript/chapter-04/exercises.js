@@ -2,7 +2,19 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, output = []) {
+// range (2, 8) => [3, 4, 5, 6, 7, 8]
+
+  if (start <= end){
+    output.push(end + 1)
+    return range (start, end + 1, output);
+    
+  } else if (start >= end){
+    output.push(end - 1) 
+    return range (start, end - 1, output);
+  }//else {
+    //return output 
+  //} 
 
 }
 

@@ -66,20 +66,19 @@ if (n === 0){
 // sumBelow(7); // 21
 var sumBelow = function(n, sum = 0) {
 // base
-
+if (n === 0){
+  return sum
+} 
    
-  // factorial
+  // recursion
   if (n < 0){
-  n += sumBelow(n - 1)
+  sum += (n + 1)
+  return sumBelow(n + 1, sum)
   }else if (n > 0){
-  n += sumBelow(n - 1) 
+  sum += (n - 1) // 0, 4, 7, 9,   // 5, 4, 3, 2, 1
+  return sumBelow(n - 1, sum)
   }
   
-
-    
- 
-
-
 };
 
 // 6. Get the integers in range (x, y).
@@ -87,17 +86,17 @@ var sumBelow = function(n, sum = 0) {
 var range = function(x, y, output = []) {
 
 // base
- if (x > y - 1){
- return output += (x + 1)
- } else if (x < y - 1){
- return output 
- }
+
 // recursion 
-
-
-
-return range(x, y, output)
- 
+ if (x < y - 1){
+    output.push(x + 1) // output = 3, 4, 5, 6, 7, 8 
+    return range(x + 1, y, output) // x = 3, 4, 5, 6, 7, 8
+  } else if (x - 1 > y ) {
+    output.push(x - 1)
+    return range(x - 1, y, output)
+  } else{
+    return output
+  }
 
 };
 
@@ -107,7 +106,10 @@ return range(x, y, output)
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+// base
 
+
+// recursion
 
 
   
@@ -118,15 +120,70 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+
+// base
+
+if (n === 1){
+  return;
+}
+// recursion
+if (n % 2 === 1){
+  true
+  return powerOfTwo(n)
+}
+
+ 
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = function(string, output = "") {
+
+// base
+
+if (string === ""){
+  return output.toString()
+}
+  
+//recursion
+  // var newArray = []
+  // newArray.push(string)
+
+  output += string[string.length-1] // output = R
+
+  return reverse(string.substr(0, string.length -1), output)
+  
+
 };
+
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+
+  var fix = /[\W_]/g // removes non letter characters
+  var lowerCase = string.toLowerCase().replace(fix, '') // this makes the string lowercase and uses 
+
+  if (lowerCase[0] === lowerCase[lowerCase.length-1] && lowerCase.length > 1){
+    palindrome(lowerCase.substr(1, lowerCase.length -1))
+      return true
+    
+  }else {
+    return false
+  }
+
+
 };
+// // base
+//  if (string === output){
+//   return true
+//   } 
+
+  
+//   output += (string[string.length-1])
+  
+//   return palindrome(string.substr(0, string.length -1), output)
+
+ 
+
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
