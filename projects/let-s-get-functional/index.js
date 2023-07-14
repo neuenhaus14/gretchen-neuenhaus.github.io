@@ -155,7 +155,7 @@ let countGender = _.reduce(array, function (accumulator, current){
               if (curr2.gender === "female"){
                 acc2 += 1
             }
-              return acc2
+                return acc2
           }, 0);
     } else if (current.gender === "male"){
             accumulator.male = array.reduce(function(acc2, curr2){
@@ -174,8 +174,6 @@ let countGender = _.reduce(array, function (accumulator, current){
         }
      return accumulator;
     
-
-
     }, { });
     
 return countGender;
