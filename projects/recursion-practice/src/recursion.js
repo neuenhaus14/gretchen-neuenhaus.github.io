@@ -377,18 +377,18 @@ var fibonacci = function(n) {
 var nthFibo = function(n, fib = [0,1]) { // 7
 
 
-if (fib[n] === n){
-  return fib[n];
-}
-// } else{
-//   return null
-// }
-
-fib.push(fib[fib.length-1] + fib[fib.length - 2])
-
-return nthFibo(n, fib)
-
-};
+  if (fib.length - 1 === fib[n]){
+    return fib[n];
+    
+  } else if (n < 0){
+     return null;
+   }
+  
+  fib.push(fib[fib.length-1] + fib[fib.length-2]);
+  return nthFibo(n, fib);
+  
+  };
+  
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
