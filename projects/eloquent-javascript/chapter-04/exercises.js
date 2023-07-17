@@ -4,21 +4,24 @@
 
 function range(start, end, output = []) {
 // range (2, 8) => [3, 4, 5, 6, 7, 8]
- if (start === end){
-  return output
-}
-
-  if (start <= end){
-    output.push(start)
-    
-  }
-
-  // } else if (start - 1 >= end){
-  //   output.push(end)  
-  // }
-  return range (start, end, output);
-//return range (start, end - 1, output);
-}
+   
+ 
+   if (start <= end){
+     output.push(start)
+     return range (start + 1, end, output);
+   } else if (start === end){
+      return output.push()
+   } else if (start > end){
+      return output
+ }
+    //}
+   // } else if (start >= end){
+   //   output.push(end)  
+   //   return range (start + 1, end, output);
+   // }
+   
+ //
+ }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////

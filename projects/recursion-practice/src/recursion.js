@@ -209,7 +209,7 @@ var multiply = function(x, y) {
     return x + multiply(x, y - 1)
 
   } else if (x < 0 && y < 0){
-    return x + (multiply(x, y + 1))
+    return -x + (multiply(x, y + 1))
   }
     
   };
@@ -374,17 +374,19 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n, sum, fibo = [0,1,1]) { // 7
+var nthFibo = function(n, fib = [0,1]) { // 7
 
 
-if (fibo[0] === n){
-  return sum;
+if (fib[n] === n){
+  return fib[n];
 }
+// } else{
+//   return null
+// }
 
-fibo[3] += fibo[2] + fibo[1];
+fib.push(fib[fib.length-1] + fib[fib.length - 2])
 
-
-return nthFibo(n, sum, fibo.slice(4))
+return nthFibo(n, fib)
 
 };
 
