@@ -208,6 +208,9 @@ var multiply = function(x, y) {
   } else if (x < 0 && y > 0){
     return x + multiply(x, y - 1)
 
+  }else if (x === 0 && y > 0){
+    return x + multiply(x, y - 1) 
+    
   } else if (x < 0 && y < 0){
     return -x + (multiply(x, y + 1))
   }
@@ -215,7 +218,7 @@ var multiply = function(x, y) {
   };
 
 
-multiply (2, 4) // 2+2+2+2 you really need to add it to itselft until you reach the end
+multiply (-2, -4) // 2+2+2+2 you really need to add it to itselft until you reach the end
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
@@ -377,9 +380,12 @@ var fibonacci = function(n) {
 var nthFibo = function(n, fib = [0,1]) { // 7
 
 
-  if (fib.length - 1 === fib[n]){
+  if (fib[n]){
     return fib[n];
-    
+
+  } else if(fib[n] === 0){
+    return fib[n];
+
   } else if (n < 0){
      return null;
    }
