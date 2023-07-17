@@ -202,15 +202,18 @@ var multiply = function(x, y) {
     return 0;
   }
 
-   if (x > 0 && y > 0){
+   if (x > 0 && y > 0){ 
     return x + multiply(x, y - 1)
+
   } else if (x < 0 && y > 0){
     return x + multiply(x, y - 1)
-  }  else if (x < 0 && y < 0){
+
+  } else if (x < 0 && y < 0){
     return x + (multiply(x, y + 1))
   }
     
   };
+
 
 multiply (2, 4) // 2+2+2+2 you really need to add it to itselft until you reach the end
 
@@ -378,7 +381,7 @@ if (fibo[0] === n){
   return sum;
 }
 
-sum += fibo[2] + fibo[1];
+fibo[3] += fibo[2] + fibo[1];
 
 
 return nthFibo(n, sum, fibo.slice(4))
@@ -523,30 +526,23 @@ return alternateSign(array, index + 1)
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str, array = [], output = []) {
+var numToText = function(str, output = "") {
 
   let words = {
     0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 
     5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' };
   
-  if (array.length === 0){
-    return output.toString()
-  }
-  
-  array = str.split(" ");
-        
-  if (typeof array[0] === "string"){
-       output.push(array[0]);
-  
-  } else if (typeof array[0] === "number"){
-      for (var key in words){
-          if (array[0] === key) {
-          }
-        }
-        output.push(words[key]);
+  if (str.length === 0){
+    return output
+  }  
+
+  if (words[str[0]]){
+    output += words[str[0]]
+  } else{
+    output += str[0]
   }
 
-  numToText(str, array.slice(1), output)
+  return numToText(str.slice(1), output)
  
   };
 
