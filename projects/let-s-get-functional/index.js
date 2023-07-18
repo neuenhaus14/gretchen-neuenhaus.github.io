@@ -82,7 +82,30 @@ var youngestCustomer = function (array){
     return youngest.name;
 };
 
-var averageBalance; // skip this one
+var averageBalance = function(array, number){ // Find the average balance of all customers
+    // loop through customers array
+    // take balance value 
+    // put in new output
+    // get the average of the output
+
+  let balances = array.map(function(customer){
+      return +customer.balance.replace(/[$,]+/g,"")
+  })
+      //console.log(balances)
+
+  let total = 0;
+    for (let i = 0; i <= balances.length - 1; i++){
+      total += balances[i]
+    }
+      //console.log(total);
+
+  let average = total / balances.length
+    //console.log(average)
+
+    return average
+}
+
+
 
 var firstLetterCount = function (array, letter){
     let countFirstLetter =  _.filter(array, function (customer){

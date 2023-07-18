@@ -50,25 +50,24 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(num) { // requires a parameter 
-  let board = ""
+function drawChessboard(args) { // requires a parameter 
+  var chessboard = ""
   
-    for (let i = 0; i < num; i ++){
-      for (let j = 0; j < num; j ++){
+    for (let i = 0; i < args; i ++){
+      for (let j = 0; j < args; j ++){
         if ((i + j) % 2 === 0){
-         board += " ";
+         chessboard += " ";
         } else{
-          board += "#"      
+          chessboard += "#"      
         }
       }  
-      board += "\n"
+      chessboard += "\n"
     }
-    return board
+    console.log(chessboard)
   }; 
 
+
  
-  drawChessboard(8)
-  console.log(drawChessboard(8))
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

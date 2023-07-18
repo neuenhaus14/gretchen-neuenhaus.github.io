@@ -2,33 +2,31 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, output = [], step = 1) {
+function range(start, end, step = 0) {
 // range (2, 8) => [3, 4, 5, 6, 7, 8]
-   
- if (!step){
-   if (start <= end){
-     output.push(start)
-     return range (start + 1, end, output, step);
-   } else if (start === end){
-      return output
-   } else if (start > end){
-      return output
+ 
+let output = [];
+  
+  if (start === end){
+    return output;
+  } else if (step < 0){
+    return output;
   }
-} else{
-  if (start <= end){
-    output.push(start)
-    return range (start + step, end, output);
- }
 
-}
-    //}
-   // } else if (start >= end){
-   //   output.push(end)  
-   //   return range (start + 1, end, output);
-   // }
-   
- //
+  if (step > 0){
+    for (let i = start; i <= end; i+= step){
+      output.push(i);
+    }
+  }else {
+    for (let j = start; j <= end; j++){
+      output.push(j);
+    }
+  }
+
+  return output;
+
  }
+   
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
@@ -102,7 +100,10 @@ return listToArray(list.rest, output);
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
+function prepend(num, list) { //Then add a helper function prepend, which takes an element and 
+  //a list and creates a new list that adds the element to the front of the input list
+
+list = {value: num, rest: {list} }
 
 }
 
@@ -110,7 +111,9 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, number) { //which takes a list and a number and returns the element at the 
+  //given position in the list (with zero referring to the first element) or undefined 
+  //when there is no such element.   If you haven’t already, also write a recursive version of nth.
 
 }
 
