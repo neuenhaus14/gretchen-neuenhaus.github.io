@@ -133,7 +133,36 @@ return output;
 }
 
 
-var topThreeTags;
+var topThreeTags = function (array){
+
+    let obj = array.reduce(function(accumulator, current){
+        // loop through  tags array
+        for (let j = 0; j < current.tags.length; j++){
+          if (accumulator[current.tags[j]]){
+               accumulator[current.tags[j]] += 1;
+            } else{
+               accumulator[current.tags[j]] = 1;
+            } 
+        }
+      return accumulator;
+    }, {})
+  
+  let topTags = [];
+    for (var key in obj){
+      let newArray = [];
+      newArray.push(key); 
+      newArray.push(obj[key]);
+      topTags.push(newArray);
+      }
+  
+  topTags.sort(function(a, b){
+    return b[1] - a[1];
+  });
+        //console.log(topTags);
+    
+  let updatedTopTags = [topTags[0][0], topTags[1][0], topTags[2][0]];
+      return updatedTopTags;
+  }
 
 var genderCount = function (array){
 // reduce function loops through array of objs.

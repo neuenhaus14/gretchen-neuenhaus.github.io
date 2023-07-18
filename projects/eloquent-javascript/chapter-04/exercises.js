@@ -2,18 +2,25 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, output = []) {
+function range(start, end, output = [], step = 1) {
 // range (2, 8) => [3, 4, 5, 6, 7, 8]
    
- 
+ if (!step){
    if (start <= end){
      output.push(start)
-     return range (start + 1, end, output);
+     return range (start + 1, end, output, step);
    } else if (start === end){
-      return output.push()
+      return output
    } else if (start > end){
       return output
+  }
+} else{
+  if (start <= end){
+    output.push(start)
+    return range (start + step, end, output);
  }
+
+}
     //}
    // } else if (start >= end){
    //   output.push(end)  
