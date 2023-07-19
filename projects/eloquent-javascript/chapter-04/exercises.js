@@ -111,9 +111,21 @@ list = {value: num, rest: {list} }
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth(list, number) { //which takes a list and a number and returns the element at the 
+function nth(list, n) { //which takes a list and a number and returns the element at the 
   //given position in the list (with zero referring to the first element) or undefined 
   //when there is no such element.   If you haven’t already, also write a recursive version of nth.
+
+  // base
+  if (n === 0){
+    return list.value
+  } else if( n < 0){
+    return undefined
+  }
+
+  // recursion
+  return nth(list.rest, n - 1)
+
+
 
 }
 

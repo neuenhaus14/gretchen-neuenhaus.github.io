@@ -92,7 +92,7 @@ var averageBalance = function(array, number){ // Find the average balance of all
       return +customer.balance.replace(/[$,]+/g,"")
   })
       //console.log(balances)
-
+  
   let total = 0;
     for (let i = 0; i <= balances.length - 1; i++){
       total += balances[i]
