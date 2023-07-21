@@ -49,7 +49,11 @@ function sum(array, output = 0) {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+
+  let newArray =  array.toReversed();
+  
+  return newArray;
 
 }
 
@@ -57,7 +61,20 @@ function reverseArray() {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) {
+
+  // let newArray =  array.reverse();
+
+  // return newArray;
+
+  let temp;
+  for (let i = 0; i < array.length / 2; i++){
+    temp = array[i];
+    array[i] = array[array.length - 1 - i];
+    array[array.length - 1 - i] = temp
+  }
+  
+return array;
 
 }
 
@@ -133,8 +150,29 @@ function nth(list, n) { //which takes a list and a number and returns the elemen
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x, y) {
+  // determine if x and y ARE NOT objects
+  if (typeof x !== 'object' && typeof y !== 'object'){
+    return x === y;
+  }
+  // determine if x OR y is not an object
+  if (typeof x !== 'object' || typeof y !== 'object'){
+    return false;
+  }
+  // create arrays of each input keys
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
 
+  if (xKeys.length !== yKeys.length){
+    return false;
+  }
+  // iterate to determine if array kets match and values at keys match
+  for (let i = 0; i < xKeys.length; i++){
+    if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]]) ){ 
+      return false;
+    }
+  }
+  return true; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
