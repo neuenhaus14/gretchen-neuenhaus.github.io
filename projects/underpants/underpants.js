@@ -311,7 +311,6 @@ _.filter = function (array, func){
        }
     
 return newArray 
-    
 
 } 
 
@@ -619,7 +618,7 @@ let result;
         for (let i = 1; i < array.length; i++)// becuase you assigned the first index to seed, you start at the next
         //index, being 1... you've taken care of the 0 index... you dont need to loop over it. 
         result = func(result,array[i], i)
-}   else{
+}   else{   
         result = seed;
         for (let i =0; i <array.length; i++){
             result = func(result,array[i], i) // resassign result to what the callbal function returns
