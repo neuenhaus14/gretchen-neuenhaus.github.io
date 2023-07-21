@@ -32,19 +32,14 @@ for (let i = start; stop(i); i = body(i)){ //2
 function every(array, test) {
 
 for (let i = 0; i < array.length; i++){
-  if (test(array[i])){
-    return true;
+  if (!test(array[i])){
+    return false;
   }
-return false;
 }
+return true;
 
-
-let useSome = !array.some(test(value){
-  return !test(value)
-  });
 
 }
-
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
