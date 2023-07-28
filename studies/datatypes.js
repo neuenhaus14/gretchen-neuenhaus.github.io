@@ -40,28 +40,51 @@
  // PRIMITIVE DATA TYPES:
  
  //Examples:
+
+ //NUMBER
  var number = 1;
+
+ //STRING
  var string = "1";
  var string1 = "one";
+
+ //BOOLEAN
  true // boolean 
  false // boolean
+
+ //NULL
  null // null
+
+ // UNDEFINED
  var name; console.log(name); // undefined because the variable was never assigned to a value
  number(undefined); 
+
+ // NaN
  var notANumber = 7 * "Smith"; // Nan becuase the result of multiplying a number with a string... is not a number
+
+ // INFINITY
  console.log(infinity + 1); // infinity, there is no greater number than infinity
  console.log(-infinity + 1); // infinity, there is no greater number than infinity
 
 
  // Copy by Value examples:
+   var x = 100; 
+   var y = x;
+   y = 50;
 
+   console.log(x); // 100
 
 
  // Complex Data Types:
 
-  let names = ["Gretchen", "Claire", "Neuenhaus"]; // array
-  let me = { name: "Gretchen" }; // object
-  function sum (a, b){ // function
+ //ARRAY
+  let names = ["Gretchen", "Claire", "Neuenhaus"];
+
+  // OBJECT
+  let me = { name: "Gretchen" }; 
+
+  // FUNCTION
+  function sum (a, b){
     return a + b
   }
   (a, b) => a + b  // also a function (arrow function)

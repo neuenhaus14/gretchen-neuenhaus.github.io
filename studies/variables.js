@@ -60,6 +60,24 @@ let hobies; // hobbies can be reassigned/ redeclared to reflect anyone's interes
             // globaly reached. 
 const myFirstName = "Gretchen" ;// my first name is a constant and that is not going to change under any circumstances
 
+// let/const blocked scope 
+
+if (1 > 0){
+    let result = true;
+} else{
+    result = false;
+}
+
+console.log(result); // will reference error: result is not defined. This using let or const in blocked scope 
+// allows for the code to remain clean 
+
+
+if (1 > 0){
+    var result = true;
+} else{
+    result = false;
+}
+console.log(result); // will print true
 
 // 3: Hoisting: \
 

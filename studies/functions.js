@@ -54,18 +54,25 @@ function capitalizeWord(string) { // function declaration, name, and parameter
     return string.charAt(0).toUpperCase() + string.slice(1) 
   }
 
- capitalizeWord("gretchen");
+ capitalizeWord("gretchen"); // function call
 
 
  // Function Scope:
- function exampleOfScope() {
-    let x = 10;
-    console.log(x); // this will log 10
-  }
-  
-  console.log(x); // this will cause an error because x can only be used in exampleOfScope
+ function doSomething (){ 
+  let y = 20 
+   function exampleOfScope(){
+      let x = 10;
+      console.log(x); // this will log 10
+      console.log(y); // this will log 20 because the child scope can access values in the parent scope
+    }
+exampleOfScope();
+}
 
- 
+doSomething();
+  
+console.log(x); // this will cause an error because x can only be used in exampleOfScope
+
+  
   // Function Closure:
   var x = 10;
 
